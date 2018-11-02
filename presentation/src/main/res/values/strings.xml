@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CleanHomes</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+    <string name="add">add</string>
+    <string name="name">name</string>
+    <string name="age">age</string>
+    <string name="id">id</string>
+    <string name="image_url">image url</string>
+</resources>

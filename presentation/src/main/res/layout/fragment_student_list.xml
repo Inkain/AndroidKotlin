@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+>
+
+    <data>
+        <variable
+                name="viewModel"
+                type="inkant1990.com.cleanhomes.presentation.screen.student.list.StudentListViewModel"/>
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Stud"
+            android:orientation="horizontal">
+        <EditText android:id="@+id/etSearhHome10"
+                  android:layout_width="0dp"
+                  android:layout_height="0dp"
+                  android:text="@={viewModel.searchData}"
+                  app:layout_constraintWidth_default="percent"
+                  app:layout_constraintWidth_percent="0.75"
+                  style="@style/Stud"
+                  app:layout_constraintHeight_percent="0.13"
+                  app:layout_constraintHeight_default="percent"
+                  app:layout_constraintTop_toTopOf="parent"
+                  app:layout_constraintLeft_toLeftOf="parent"
+        />
+        <Button android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.25"
+                app:layout_constraintHeight_percent="0.13"
+                app:layout_constraintHeight_default="percent"
+                android:text="@string/add"
+                android:onClick="@{(v)-> viewModel.addStudent(v)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" android:id="@+id/btHome10ListAdd"/>
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvHome10StudentList"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintWidth_percent="1"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintHeight_percent="0.87"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintTop_toBottomOf="@id/btHome10ListAdd"
+                app:layout_constraintLeft_toLeftOf="parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</layout>
