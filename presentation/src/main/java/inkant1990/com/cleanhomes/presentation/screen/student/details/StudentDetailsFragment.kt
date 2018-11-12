@@ -42,4 +42,9 @@ class StudentDetailsFragment :
             router?.goBack()
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+
+    }
 }

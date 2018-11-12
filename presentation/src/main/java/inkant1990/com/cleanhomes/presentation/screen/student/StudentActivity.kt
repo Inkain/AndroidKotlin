@@ -20,7 +20,6 @@ class StudentActivity : BaseMvvmActivity<StudentViewModel, StudentRouter, Activi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         router.goToStudentList()
     }
 }

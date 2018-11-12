@@ -39,4 +39,5 @@ class StudentListFragment : BaseMvvmFragment<StudentListViewModel, StudentRouter
                 viewModel.search(it.toString())
             }
     }
+
 }

@@ -2,6 +2,7 @@ package inkant1990.com.cleanhomes.presentation.base
 
 import android.support.v4.app.FragmentManager
 import android.util.Log
+import android.widget.Toast
 
 abstract class BaseRouter<A : BaseActivity>(val activity: A) {
 
@@ -13,6 +14,7 @@ abstract class BaseRouter<A : BaseActivity>(val activity: A) {
     }
 
     fun showError(e: Throwable) {
+        Toast.makeText(activity.baseContext,e.message,Toast.LENGTH_LONG).show()
         Log.v("Error ", e.toString())
 
     }

@@ -3,6 +3,7 @@ package inkant1990.com.cleanhomes.presentation.screen.student.details
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import android.view.View
+import android.widget.Toast
 import inkant1990.com.cleanhomes.factory.UseCaseProvider
 import inkant1990.com.cleanhomes.presentation.base.BaseViewModel
 import inkant1990.com.cleanhomes.presentation.screen.student.StudentRouter
@@ -60,7 +61,7 @@ class StudentsDetailsViewModel : BaseViewModel<StudentRouter>() {
         addToDisposable(
             useCase.update(
                 Student(
-                    null,
+                    this.id.toString(),
                     this.name.get().toString(),
                     this.age.get()!!.toInt(),
                     this.image.get().toString()
@@ -75,8 +76,9 @@ class StudentsDetailsViewModel : BaseViewModel<StudentRouter>() {
     }
 
     fun save(v: View) {
-        useCase.put(Student(null, name.get().toString(), age.get()!!.toInt(), image.get().toString()))
+        useCase.put(Student(" ", name.get().toString(), age.get()!!.toInt(), image.get().toString()))
             .subscribeBy(onError = {
+
                 router?.showError(it)
             })
         router?.goToStudentList()
