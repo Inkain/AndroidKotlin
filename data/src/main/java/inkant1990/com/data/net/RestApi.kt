@@ -32,4 +32,7 @@ interface RestApi {
 
     @GET("Students")
     fun searchStudent(@Query("where") name: String?): Observable<List<StudentResponse>>
+
+    @GET("Students")
+    fun id(@Query("where") name: String?="id=2"): Observable<StudentResponse>
 }

@@ -6,6 +6,10 @@ import android.util.Log
 import inkant1990.com.cleanhomes.R
 import inkant1990.com.cleanhomes.databinding.ActivityHome10StudentBinding
 import inkant1990.com.cleanhomes.presentation.base.BaseMvvmActivity
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
+
+
 
 
 class StudentActivity : BaseMvvmActivity<StudentViewModel, StudentRouter, ActivityHome10StudentBinding>() {
@@ -20,6 +24,7 @@ class StudentActivity : BaseMvvmActivity<StudentViewModel, StudentRouter, Activi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Fabric.with(this, Crashlytics())
         router.goToStudentList()
     }
 }

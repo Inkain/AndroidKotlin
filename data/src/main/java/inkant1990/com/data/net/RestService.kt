@@ -1,9 +1,11 @@
 package inkant1990.com.data.net
 
+import android.util.Log
 import com.google.gson.Gson
 import inkant1990.com.data.entity.StudentResponse
 import inkant1990.com.data.entity.Students
 import io.reactivex.Observable
+import io.reactivex.rxkotlin.subscribeBy
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -43,7 +45,9 @@ class RestService constructor(private val apiUrl: String) {
     }
 
     fun getStudentById(id: String): Observable<StudentResponse> {
+
         return restApi.getStudentsById(id)
+
     }
 
     fun updateStudent(student: Students, id: String): Observable<StudentResponse> {
