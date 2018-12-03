@@ -5,7 +5,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 27
     defaultConfig {
         applicationId "inkant1990.com.cleanhomes"
         minSdkVersion rootProject.minSdkVersion
@@ -27,11 +27,22 @@ android {
 repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
+def GROUP_NAME = "custom_group_name"
+task qaToFabric(dependsOn: "assembleRelease") {
+    group = GROUP_NAME
+    doLast {
+        def groupName = "TestProjectQa"
+        def releaseNotes = ""
 
+        def task = tasks.getByName("crashlyticsUploadDistributionRelease")
+        task.ext.betaDistributionReleaseNotes = releaseNotes
+        task.ext.betaDistributionGroupAliases = groupName
+        task.execute()
+    }
+}
 dependencies {
-    def androidSupportVersion = "28.0.0"
+    def androidSupportVersion = "27.1.0"
     def lifecycle_version = "1.1.1"
-    def daggerVersion = "2.17"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.android.support:appcompat-v7:$androidSupportVersion"

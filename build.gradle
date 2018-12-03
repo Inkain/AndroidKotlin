@@ -30,19 +30,8 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-task qaToFabric(dependsOn: "assembleRelease") {
 
-    doLast {
 
-        def groupName = "TestProjectQa"
-        def releaseNotes = ""
-
-        def task = tasks.getByName("crashlyticsUploadDistributionRelease")
-        task.ext.betaDistributionReleaseNotes = releaseNotes
-        task.ext.betaDistributionGroupAliases = groupName
-        task.execute()
-    }
-}
 ext{
     compileSdkVersion = 28
     minSdkVersion = 19

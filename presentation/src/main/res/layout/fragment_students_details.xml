@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
 >
     <data>
@@ -25,6 +25,10 @@
                 android:background="@color/Black"
                 android:orientation="horizontal"
                 app:visibility="@{viewModel.visiblityMain}">
+            <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                         tools:background="@color/Black">
+
+            </FrameLayout>
             <ImageView
                     android:id="@+id/imgDetailsHome10"
                     android:layout_width="0dp"
